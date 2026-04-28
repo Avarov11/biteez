@@ -1,24 +1,38 @@
-# Logs
-logs
+# node
+node_modules/
+
+# logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# env
+.env
+.env.local
+.env.*.local
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# misc
 .DS_Store
+Thumbs.db
+
+# editors
+.vscode/
+.idea/
 *.suo
-*.ntvs*
-*.njsproj
-*.sln
 *.sw?
+
+# root-level Vite scaffold (not part of this project)
+index.html
+vite.config.ts
+eslint.config.js
+tsconfig.json
+tsconfig.app.json
+tsconfig.node.json
+package.json
+package-lock.json
+src/
+public/
+dist/
+dist-ssr/
