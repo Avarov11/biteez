@@ -21,9 +21,9 @@ function CartCard({ item, onRemove, onQty }: {
   ].filter(Boolean) as string[];
 
   return (
-    <div className="bg-white rounded-2xl border border-[rgba(26,10,10,0.06)] shadow-warm-xs hover:shadow-warm p-4 flex gap-4 transition-shadow duration-300">
+    <div className="bg-white rounded-2xl shadow-warm-xs hover:shadow-warm p-4 flex gap-4 transition-shadow duration-300">
       {/* Thumbnail */}
-      <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden bg-cream-dark shrink-0">
+      <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-xl overflow-hidden bg-[#F5E4E6] shrink-0">
         {item.productImage ? (
           <Image src={item.productImage} alt={item.productName} fill sizes="96px" className="object-cover" />
         ) : (
@@ -64,7 +64,7 @@ function CartCard({ item, onRemove, onQty }: {
           <div className="flex items-center gap-2">
             <button
               onClick={() => onQty(item.quantity - 1)}
-              className="w-7 h-7 rounded-full border border-[rgba(26,10,10,0.12)] flex items-center justify-center text-[#4A3728] hover:border-burgundy hover:text-burgundy transition-colors"
+              className="w-7 h-7 rounded-full border border-[rgba(26,10,10,0.12)] flex items-center justify-center text-[#4A3728] hover:border-[#3D0A14] hover:text-[#3D0A14] transition-colors"
             >
               <Minus size={11} />
             </button>
@@ -73,12 +73,12 @@ function CartCard({ item, onRemove, onQty }: {
             </span>
             <button
               onClick={() => onQty(item.quantity + 1)}
-              className="w-7 h-7 rounded-full border border-[rgba(26,10,10,0.12)] flex items-center justify-center text-[#4A3728] hover:border-burgundy hover:text-burgundy transition-colors"
+              className="w-7 h-7 rounded-full border border-[rgba(26,10,10,0.12)] flex items-center justify-center text-[#4A3728] hover:border-[#3D0A14] hover:text-[#3D0A14] transition-colors"
             >
               <Plus size={11} />
             </button>
           </div>
-          <span className="font-playfair font-bold text-burgundy text-lg">
+          <span className="font-playfair font-bold text-[#3D0A14] text-lg">
             QAR {item.unitPrice * item.quantity}
           </span>
         </div>
@@ -95,8 +95,8 @@ export default function CartPage() {
 
   if (!mounted) {
     return (
-      <main className="min-h-screen bg-cream pt-20 flex items-center justify-center">
-        <div className="w-8 h-8 rounded-full border-2 border-burgundy border-t-transparent animate-spin" />
+      <main className="min-h-screen pt-20 flex items-center justify-center" style={{ backgroundColor: "#C896A0" }}>
+        <div className="w-8 h-8 rounded-full border-2 border-[#3D0A14] border-t-transparent animate-spin" />
       </main>
     );
   }
@@ -106,21 +106,21 @@ export default function CartPage() {
 
   if (items.length === 0) {
     return (
-      <main className="min-h-screen bg-cream pt-20 flex flex-col items-center justify-center px-4">
+      <main className="min-h-screen pt-20 flex flex-col items-center justify-center px-4" style={{ backgroundColor: "#C896A0" }}>
         <div className="text-center max-w-sm">
-          <div className="w-24 h-24 rounded-full bg-burgundy-light flex items-center justify-center mx-auto mb-6">
-            <ShoppingBag size={34} className="text-burgundy" />
+          <div className="w-24 h-24 rounded-full bg-[#F5E4E6] flex items-center justify-center mx-auto mb-6">
+            <ShoppingBag size={34} className="text-[#3D0A14]" />
           </div>
           <h1 className="font-playfair text-3xl font-bold text-[#1A0A0A] mb-3">
             Your cart is empty
           </h1>
-          <p className="text-[#9E7B7B] text-sm mb-8">
+          <p className="text-[#3D0A14]/60 text-sm mb-8">
             Looks like you haven&apos;t added anything yet. Explore our menu
             and build your perfect order.
           </p>
           <Link
             href="/menu"
-            className="inline-flex items-center gap-2 bg-burgundy hover:bg-burgundy-dark text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 shadow-warm-sm hover:shadow-warm-md active:scale-[0.97]"
+            className="inline-flex items-center gap-2 bg-[#3D0A14] hover:bg-[#2D0810] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5 shadow-warm-sm hover:shadow-warm-md active:scale-[0.97]"
           >
             Browse Menu <ArrowRight size={16} />
           </Link>
@@ -130,18 +130,18 @@ export default function CartPage() {
   }
 
   return (
-    <main className="min-h-screen bg-cream pt-16 md:pt-20 pb-10">
+    <main className="min-h-screen pt-16 md:pt-20 pb-10" style={{ backgroundColor: "#C896A0" }}>
       {/* Header */}
-      <div className="bg-white border-b border-[rgba(26,10,10,0.06)] px-6 md:px-12 py-6">
+      <div className="border-b border-[rgba(26,10,10,0.10)] px-6 md:px-12 py-6">
         <div className="max-w-6xl mx-auto flex items-center gap-3">
-          <button onClick={() => router.back()} className="text-[#9E7B7B] hover:text-burgundy transition-colors">
+          <button onClick={() => router.back()} className="text-[#9E7B7B] hover:text-[#3D0A14] transition-colors">
             <ChevronLeft size={22} />
           </button>
           <div>
             <h1 className="font-playfair text-2xl md:text-3xl font-bold text-[#1A0A0A]">
               My Cart
             </h1>
-            <p className="text-[#9E7B7B] text-sm">
+            <p className="text-[#3D0A14]/60 text-sm">
               {itemCount} item{itemCount !== 1 ? "s" : ""}
             </p>
           </div>
@@ -153,7 +153,7 @@ export default function CartPage() {
           {/* Cart items */}
           <div className="flex-1 w-full space-y-3">
             <div className="flex items-center justify-between mb-1">
-              <p className="text-xs text-[#9E7B7B] font-medium uppercase tracking-wider">
+              <p className="text-xs text-[#3D0A14]/60 font-medium uppercase tracking-wider">
                 Your Items
               </p>
               <button
@@ -175,7 +175,7 @@ export default function CartPage() {
 
             <Link
               href="/menu"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-burgundy hover:text-burgundy-dark transition-colors mt-2"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#3D0A14] hover:text-[#2D0810] transition-colors mt-2"
             >
               <ChevronLeft size={14} /> Continue Shopping
             </Link>
@@ -183,7 +183,7 @@ export default function CartPage() {
 
           {/* Order summary */}
           <div className="w-full lg:w-80 xl:w-96 shrink-0">
-            <div className="bg-white rounded-2xl border border-[rgba(26,10,10,0.06)] shadow-warm-sm p-6 sticky top-24">
+            <div className="bg-white rounded-2xl shadow-warm-sm p-6 sticky top-24">
               <h2 className="font-playfair text-xl font-bold text-[#1A0A0A] mb-5">
                 Order Summary
               </h2>
@@ -204,7 +204,7 @@ export default function CartPage() {
                 ))}
               </div>
 
-              <div className="border-t border-[rgba(26,10,10,0.06)] pt-4 space-y-2 mb-6">
+              <div className="border-t border-[rgba(26,10,10,0.08)] pt-4 space-y-2 mb-6">
                 <div className="flex justify-between text-sm">
                   <span className="text-[#9E7B7B]">Subtotal</span>
                   <span className="font-semibold text-[#1A0A0A]">QAR {subtotal}</span>
@@ -213,21 +213,21 @@ export default function CartPage() {
                   <span className="text-[#9E7B7B]">Delivery</span>
                   <span className="text-emerald-600 font-semibold">Pickup only</span>
                 </div>
-                <div className="border-t border-[rgba(26,10,10,0.06)] pt-3 flex justify-between">
+                <div className="border-t border-[rgba(26,10,10,0.08)] pt-3 flex justify-between">
                   <span className="font-bold text-[#1A0A0A]">Total</span>
-                  <span className="font-playfair font-bold text-burgundy text-xl">
+                  <span className="font-playfair font-bold text-[#3D0A14] text-xl">
                     QAR {subtotal}
                   </span>
                 </div>
               </div>
 
-              <div className="bg-cream rounded-xl px-4 py-3 mb-5 text-xs text-[#9E7B7B] leading-relaxed">
+              <div className="bg-[#F5E4E6] rounded-xl px-4 py-3 mb-5 text-xs text-[#4A3728] leading-relaxed">
                 🍫 &nbsp;All brownies are baked fresh and ready for pickup at our boutique within 24–48 hours.
               </div>
 
               <button
                 onClick={() => router.push("/checkout")}
-                className="w-full bg-burgundy hover:bg-burgundy-dark text-white font-bold py-4 rounded-2xl transition-all duration-300 hover:shadow-warm-lg shadow-warm-sm font-playfair tracking-wide flex items-center justify-center gap-2 active:scale-[0.97]"
+                className="w-full bg-[#3D0A14] hover:bg-[#2D0810] text-white font-bold py-4 rounded-2xl transition-all duration-300 hover:shadow-warm-lg shadow-warm-sm font-playfair tracking-wide flex items-center justify-center gap-2 active:scale-[0.97]"
               >
                 Proceed to Checkout <ArrowRight size={16} />
               </button>

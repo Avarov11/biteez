@@ -25,8 +25,8 @@ function Field({
       <input
         {...props}
         className={cn(
-          "w-full px-4 py-3 bg-cream-dark border rounded-xl text-sm text-[#1A0A0A] placeholder:text-[#9E7B7B] outline-none transition-colors",
-          error ? "border-red-400 focus:border-red-500" : "border-[rgba(26,10,10,0.10)] focus:border-burgundy"
+          "w-full px-4 py-3 bg-white border rounded-xl text-sm text-[#1A0A0A] placeholder:text-[#9E7B7B] outline-none transition-colors",
+          error ? "border-red-400 focus:border-red-500" : "border-[rgba(26,10,10,0.10)] focus:border-[#3D0A14]"
         )}
       />
       {error && <p className="text-red-500 text-[11px] mt-1">{error}</p>}
@@ -36,7 +36,7 @@ function Field({
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white rounded-2xl border border-[rgba(26,10,10,0.06)] shadow-warm-xs p-5 md:p-6 space-y-4">
+    <div className="bg-white rounded-2xl shadow-warm-xs p-5 md:p-6 space-y-4">
       <h3 className="font-playfair text-lg font-bold text-[#1A0A0A]">{title}</h3>
       {children}
     </div>
@@ -100,34 +100,34 @@ export default function CheckoutPage() {
 
   if (!mounted) {
     return (
-      <main className="min-h-screen bg-cream pt-20 flex items-center justify-center">
-        <div className="w-8 h-8 rounded-full border-2 border-burgundy border-t-transparent animate-spin" />
+      <main className="min-h-screen pt-20 flex items-center justify-center" style={{ backgroundColor: "#C896A0" }}>
+        <div className="w-8 h-8 rounded-full border-2 border-[#3D0A14] border-t-transparent animate-spin" />
       </main>
     );
   }
 
   if (items.length === 0) {
     return (
-      <main className="min-h-screen bg-cream pt-20 flex flex-col items-center justify-center px-4 text-center">
+      <main className="min-h-screen pt-20 flex flex-col items-center justify-center px-4 text-center" style={{ backgroundColor: "#C896A0" }}>
         <p className="font-playfair text-2xl font-bold text-[#1A0A0A] mb-3">Your cart is empty</p>
-        <Link href="/menu" className="text-burgundy font-semibold hover:underline">Browse the menu →</Link>
+        <Link href="/menu" className="text-[#3D0A14] font-semibold hover:underline">Browse the menu →</Link>
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-cream pt-16 md:pt-20 pb-10">
+    <main className="min-h-screen pt-16 md:pt-20 pb-10" style={{ backgroundColor: "#C896A0" }}>
       {/* Header */}
-      <div className="bg-white border-b border-[rgba(26,10,10,0.06)] px-6 md:px-12 py-5">
+      <div className="border-b border-[rgba(26,10,10,0.10)] px-6 md:px-12 py-5">
         <div className="max-w-6xl mx-auto flex items-center gap-3">
-          <Link href="/cart" className="text-[#9E7B7B] hover:text-burgundy transition-colors">
+          <Link href="/cart" className="text-[#9E7B7B] hover:text-[#3D0A14] transition-colors">
             <ChevronLeft size={22} />
           </Link>
           <div>
             <h1 className="font-playfair text-2xl md:text-3xl font-bold text-[#1A0A0A]">
               Checkout
             </h1>
-            <p className="text-[#9E7B7B] text-sm">Review and confirm your order</p>
+            <p className="text-[#3D0A14]/60 text-sm">Review and confirm your order</p>
           </div>
         </div>
       </div>
@@ -150,8 +150,8 @@ export default function CheckoutPage() {
 
               <Section title="Pickup Details">
                 {/* Store card */}
-                <div className="flex items-start gap-3 p-4 bg-burgundy-light border border-burgundy/15 rounded-xl">
-                  <MapPin size={16} className="text-burgundy shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 p-4 bg-[#F5E4E6] border border-[rgba(26,10,10,0.10)] rounded-xl">
+                  <MapPin size={16} className="text-[#3D0A14] shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-[#1A0A0A] text-sm">Biteez Boutique</p>
                     <p className="text-[#4A3728] text-xs mt-0.5">123 Dessert Lane, Beirut, Lebanon</p>
@@ -170,8 +170,8 @@ export default function CheckoutPage() {
                     type="date" min={today} max={maxDate}
                     value={form.pickupDate} onChange={(e) => set("pickupDate", e.target.value)}
                     className={cn(
-                      "w-full px-4 py-3 bg-cream-dark border rounded-xl text-sm text-[#1A0A0A] outline-none transition-colors",
-                      errors.pickupDate ? "border-red-400" : "border-[rgba(26,10,10,0.10)] focus:border-burgundy"
+                      "w-full px-4 py-3 bg-white border rounded-xl text-sm text-[#1A0A0A] outline-none transition-colors",
+                      errors.pickupDate ? "border-red-400" : "border-[rgba(26,10,10,0.10)] focus:border-[#3D0A14]"
                     )}
                   />
                   {errors.pickupDate && <p className="text-red-500 text-[11px] mt-1">{errors.pickupDate}</p>}
@@ -189,8 +189,8 @@ export default function CheckoutPage() {
                         className={cn(
                           "py-3 px-3 rounded-xl border-2 text-xs font-semibold text-center transition-all duration-200 active:scale-[0.97]",
                           form.pickupTime === slot
-                            ? "border-burgundy bg-burgundy text-white shadow-warm-sm"
-                            : "border-[rgba(26,10,10,0.10)] text-[#4A3728] hover:border-burgundy/40 bg-cream-dark"
+                            ? "border-[#3D0A14] bg-[#3D0A14] text-white shadow-warm-sm"
+                            : "border-[rgba(26,10,10,0.10)] text-[#4A3728] hover:border-[#3D0A14]/40 bg-white"
                         )}
                       >
                         {slot}
@@ -215,19 +215,19 @@ export default function CheckoutPage() {
                       className={cn(
                         "flex items-center gap-3 p-4 rounded-xl border-2 text-left transition-all duration-200",
                         form.payment === id
-                          ? "border-burgundy bg-burgundy-light shadow-warm-xs"
-                          : "border-[rgba(26,10,10,0.10)] hover:border-burgundy/30 bg-cream-dark"
+                          ? "border-[#3D0A14] bg-[#F5E4E6] shadow-warm-xs"
+                          : "border-[rgba(26,10,10,0.10)] hover:border-[#3D0A14]/30 bg-white"
                       )}
                     >
                       <div className={cn(
                         "w-9 h-9 rounded-full flex items-center justify-center shrink-0",
-                        form.payment === id ? "bg-burgundy text-white" : "bg-white text-[#9E7B7B]"
+                        form.payment === id ? "bg-[#3D0A14] text-white" : "bg-[#F5E4E6] text-[#9E7B7B]"
                       )}>
                         <Icon size={16} />
                       </div>
                       <span className={cn(
                         "text-sm font-semibold",
-                        form.payment === id ? "text-burgundy" : "text-[#4A3728]"
+                        form.payment === id ? "text-[#3D0A14]" : "text-[#4A3728]"
                       )}>
                         {label}
                       </span>
@@ -244,14 +244,14 @@ export default function CheckoutPage() {
                   value={form.notes} onChange={(e) => set("notes", e.target.value)}
                   placeholder="Allergies, special packaging, decoration requests…"
                   rows={3}
-                  className="w-full px-4 py-3 bg-cream-dark border border-[rgba(26,10,10,0.10)] focus:border-burgundy rounded-xl text-sm text-[#1A0A0A] placeholder:text-[#9E7B7B] outline-none transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-white border border-[rgba(26,10,10,0.10)] focus:border-[#3D0A14] rounded-xl text-sm text-[#1A0A0A] placeholder:text-[#9E7B7B] outline-none transition-colors resize-none"
                 />
               </Section>
             </div>
 
             {/* ── Order summary ──────────────────────── */}
             <div className="w-full lg:w-80 xl:w-96 shrink-0">
-              <div className="bg-white rounded-2xl border border-[rgba(26,10,10,0.06)] shadow-warm-sm p-6 sticky top-24">
+              <div className="bg-white rounded-2xl shadow-warm-sm p-6 sticky top-24">
                 <h2 className="font-playfair text-xl font-bold text-[#1A0A0A] mb-5">
                   Order Summary
                 </h2>
@@ -270,7 +270,7 @@ export default function CheckoutPage() {
                   ))}
                 </div>
 
-                <div className="border-t border-[rgba(26,10,10,0.06)] pt-4 space-y-2 mb-6">
+                <div className="border-t border-[rgba(26,10,10,0.08)] pt-4 space-y-2 mb-6">
                   <div className="flex justify-between text-sm">
                     <span className="text-[#9E7B7B]">Subtotal</span>
                     <span className="font-semibold text-[#1A0A0A]">QAR {subtotal}</span>
@@ -279,9 +279,9 @@ export default function CheckoutPage() {
                     <span className="text-[#9E7B7B]">Delivery</span>
                     <span className="text-emerald-600 font-semibold">Pickup · Free</span>
                   </div>
-                  <div className="border-t border-[rgba(26,10,10,0.06)] pt-3 flex justify-between">
+                  <div className="border-t border-[rgba(26,10,10,0.08)] pt-3 flex justify-between">
                     <span className="font-bold text-[#1A0A0A]">Total</span>
-                    <span className="font-playfair font-bold text-burgundy text-xl">QAR {subtotal}</span>
+                    <span className="font-playfair font-bold text-[#3D0A14] text-xl">QAR {subtotal}</span>
                   </div>
                 </div>
 
@@ -291,7 +291,7 @@ export default function CheckoutPage() {
                     "w-full font-bold py-4 rounded-2xl transition-all duration-300 font-playfair tracking-wide text-white",
                     placing
                       ? "bg-[#9E7B7B] cursor-not-allowed"
-                      : "bg-burgundy hover:bg-burgundy-dark shadow-warm-sm hover:shadow-warm-lg active:scale-[0.97]"
+                      : "bg-[#3D0A14] hover:bg-[#2D0810] shadow-warm-sm hover:shadow-warm-lg active:scale-[0.97]"
                   )}
                 >
                   {placing ? (

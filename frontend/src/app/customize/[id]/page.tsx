@@ -157,8 +157,6 @@ const steps = [
   { id: "write", label: "Write & Print", Icon: PenLine },
 ];
 
-// ─── Selections type ──────────────────────────────────────────────────────────
-
 interface Selections {
   shapeId: string;
   flavorId: string;
@@ -270,17 +268,17 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
               className={cn(
                 "relative rounded-2xl border-2 p-3 text-left transition-all duration-300 bg-white active:scale-[0.97]",
                 selected
-                  ? "border-burgundy shadow-warm-md"
-                  : "border-[rgba(26,10,10,0.10)] hover:border-burgundy/40 hover:shadow-warm-sm"
+                  ? "border-[#3D0A14] shadow-warm-md"
+                  : "border-[rgba(26,10,10,0.10)] hover:border-[#3D0A14]/40 hover:shadow-warm-sm"
               )}
             >
               {selected && (
                 <CheckCircle2
                   size={18}
-                  className="absolute top-2.5 right-2.5 text-burgundy fill-burgundy"
+                  className="absolute top-2.5 right-2.5 text-[#3D0A14] fill-[#F5E4E6]"
                 />
               )}
-              <div className="relative aspect-square rounded-xl overflow-hidden bg-cream-dark mb-3">
+              <div className="relative aspect-square rounded-xl overflow-hidden bg-[#F5E4E6] mb-3">
                 <Image src={shape.image} alt={shape.name} fill sizes="(max-width: 768px) 45vw, 200px" className="object-cover" />
               </div>
               <h3 className="font-semibold text-[#1A0A0A] text-sm mb-0.5">{shape.name}</h3>
@@ -288,7 +286,7 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
               <p className="text-[#9E7B7B] text-[11px]">
                 {shape.weight} &nbsp;|&nbsp; {shape.dimensions}
               </p>
-              <p className={cn("font-bold text-sm mt-2", selected ? "text-burgundy" : "text-[#4A3728]")}>
+              <p className={cn("font-bold text-sm mt-2", selected ? "text-[#3D0A14]" : "text-[#4A3728]")}>
                 {shape.price} QAR
               </p>
             </button>
@@ -312,14 +310,14 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
               className={cn(
                 "relative rounded-2xl border-2 p-4 text-left transition-all duration-300 bg-white active:scale-[0.97]",
                 selected
-                  ? "border-burgundy shadow-warm-md"
-                  : "border-[rgba(26,10,10,0.10)] hover:border-burgundy/40 hover:shadow-warm-sm"
+                  ? "border-[#3D0A14] shadow-warm-md"
+                  : "border-[rgba(26,10,10,0.10)] hover:border-[#3D0A14]/40 hover:shadow-warm-sm"
               )}
             >
               {selected && (
                 <CheckCircle2
                   size={16}
-                  className="absolute top-3 right-3 text-burgundy fill-burgundy"
+                  className="absolute top-3 right-3 text-[#3D0A14] fill-[#F5E4E6]"
                 />
               )}
               <span className="text-2xl mb-2 block">{flavor.emoji}</span>
@@ -328,7 +326,7 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
               <span
                 className={cn(
                   "text-xs font-bold",
-                  flavor.addOn > 0 ? "text-burgundy" : "text-[#9E7B7B]"
+                  flavor.addOn > 0 ? "text-[#3D0A14]" : "text-[#9E7B7B]"
                 )}
               >
                 {flavor.addOn > 0 ? `+${flavor.addOn} QAR` : "Included"}
@@ -353,7 +351,7 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
               onClick={() => setSel((p) => ({ ...p, colorId: color.id }))}
               className={cn(
                 "flex flex-col items-center gap-2 p-2.5 rounded-xl transition-all duration-200 active:scale-[0.97]",
-                selected ? "bg-burgundy-light" : "hover:bg-cream-dark"
+                selected ? "bg-[#F5E4E6]" : "hover:bg-[#F5E4E6]"
               )}
             >
               <div className="relative">
@@ -361,7 +359,7 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
                   className={cn(
                     "w-12 h-12 rounded-full border-4 transition-all duration-200",
                     selected
-                      ? "border-burgundy scale-110 shadow-warm-md"
+                      ? "border-[#3D0A14] scale-110 shadow-warm-md"
                       : "border-[rgba(26,10,10,0.12)]",
                     color.id === "white" && !selected && "border-[rgba(26,10,10,0.15)]"
                   )}
@@ -405,7 +403,7 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
           value={toppingSearch}
           onChange={(e) => setToppingSearch(e.target.value)}
           placeholder="Search toppings…"
-          className="w-full pl-9 pr-4 py-2.5 bg-cream-dark border border-[rgba(26,10,10,0.08)] rounded-xl text-sm text-[#1A0A0A] placeholder:text-[#9E7B7B] outline-none focus:border-burgundy transition-colors"
+          className="w-full pl-9 pr-4 py-2.5 bg-white border border-[rgba(26,10,10,0.08)] rounded-xl text-sm text-[#1A0A0A] placeholder:text-[#9E7B7B] outline-none focus:border-[#3D0A14] transition-colors"
         />
       </div>
 
@@ -417,8 +415,8 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
             className={cn(
               "shrink-0 px-3 py-1.5 rounded-full text-xs font-bold tracking-wide transition-all duration-200 active:scale-[0.97]",
               toppingCat === cat
-                ? "bg-burgundy text-white shadow-warm-sm"
-                : "bg-white text-[#4A3728] hover:bg-burgundy-light border border-[rgba(26,10,10,0.07)]"
+                ? "bg-[#3D0A14] text-white shadow-warm-sm"
+                : "bg-white text-[#4A3728] hover:bg-[#F5E4E6] border border-[rgba(26,10,10,0.07)]"
             )}
           >
             {cat}
@@ -427,8 +425,8 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
       </div>
 
       {sel.toppingIds.length > 0 && (
-        <div className="mb-4 p-3 bg-burgundy-light border border-burgundy/20 rounded-xl">
-          <p className="text-xs font-semibold text-burgundy">
+        <div className="mb-4 p-3 bg-[#F5E4E6] border border-[#3D0A14]/20 rounded-xl">
+          <p className="text-xs font-semibold text-[#3D0A14]">
             {sel.toppingIds.length} topping{sel.toppingIds.length > 1 ? "s" : ""} selected
             {" "}·{" "}
             +{toppings
@@ -449,20 +447,20 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
               className={cn(
                 "relative rounded-xl border-2 p-3 text-center transition-all duration-200 bg-white active:scale-[0.97]",
                 selected
-                  ? "border-burgundy bg-burgundy-light shadow-warm-sm"
-                  : "border-[rgba(26,10,10,0.10)] hover:border-burgundy/40"
+                  ? "border-[#3D0A14] bg-[#F5E4E6] shadow-warm-sm"
+                  : "border-[rgba(26,10,10,0.10)] hover:border-[#3D0A14]/40"
               )}
             >
               {selected && (
                 <span className="absolute top-1.5 right-1.5">
-                  <Check size={10} className="text-burgundy" strokeWidth={3} />
+                  <Check size={10} className="text-[#3D0A14]" strokeWidth={3} />
                 </span>
               )}
               <span className="text-xl block mb-1">{topping.emoji}</span>
               <p className="text-[10px] font-semibold text-[#1A0A0A] leading-tight mb-0.5">
                 {topping.name}
               </p>
-              <p className={cn("text-[10px] font-bold", selected ? "text-burgundy" : "text-[#9E7B7B]")}>
+              <p className={cn("text-[10px] font-bold", selected ? "text-[#3D0A14]" : "text-[#9E7B7B]")}>
                 +{topping.price} QAR
               </p>
             </button>
@@ -497,7 +495,7 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
             }
             placeholder="e.g. Happy Birthday Sarah! 🎂"
             rows={3}
-            className="w-full px-4 py-3 bg-cream-dark border border-[rgba(26,10,10,0.10)] focus:border-burgundy rounded-xl text-sm text-[#1A0A0A] placeholder:text-[#9E7B7B] outline-none transition-colors resize-none"
+            className="w-full px-4 py-3 bg-white border border-[rgba(26,10,10,0.10)] focus:border-[#3D0A14] rounded-xl text-sm text-[#1A0A0A] placeholder:text-[#9E7B7B] outline-none transition-colors resize-none"
           />
           <p className="text-right text-xs text-[#9E7B7B] mt-1">
             {sel.message.length}/50
@@ -518,13 +516,13 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
                   className={cn(
                     "relative rounded-xl border-2 p-3 text-center transition-all duration-300 bg-white active:scale-[0.97]",
                     selected
-                      ? "border-burgundy shadow-warm-md"
-                      : "border-[rgba(26,10,10,0.10)] hover:border-burgundy/40 hover:shadow-warm-sm"
+                      ? "border-[#3D0A14] shadow-warm-md"
+                      : "border-[rgba(26,10,10,0.10)] hover:border-[#3D0A14]/40 hover:shadow-warm-sm"
                   )}
                 >
                   {selected && (
                     <span className="absolute top-2 right-2">
-                      <Check size={12} className="text-burgundy" strokeWidth={3} />
+                      <Check size={12} className="text-[#3D0A14]" strokeWidth={3} />
                     </span>
                   )}
                   <p
@@ -554,8 +552,8 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
                   className={cn(
                     "rounded-xl border-2 py-3 text-center text-xs font-semibold transition-all duration-200 active:scale-[0.97]",
                     selected
-                      ? "border-burgundy bg-burgundy text-white shadow-warm-sm"
-                      : "border-[rgba(26,10,10,0.10)] text-[#4A3728] hover:border-burgundy/40 bg-cream-dark"
+                      ? "border-[#3D0A14] bg-[#3D0A14] text-white shadow-warm-sm"
+                      : "border-[rgba(26,10,10,0.10)] text-[#4A3728] hover:border-[#3D0A14]/40 bg-white"
                   )}
                 >
                   {p}
@@ -579,12 +577,12 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
   // ─── Render ────────────────────────────────────────────────────────────────
 
   return (
-    <div className="min-h-screen bg-cream flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#C896A0" }}>
       {/* ── Fixed header ── */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#FDF6F0]/97 backdrop-blur-md border-b border-[rgba(26,10,10,0.06)] shadow-warm-xs h-14 flex items-center px-4 md:px-6">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#C896A0]/97 backdrop-blur-md border-b border-[rgba(26,10,10,0.10)] shadow-warm-xs h-14 flex items-center px-4 md:px-6">
         <button
           onClick={() => router.back()}
-          className="flex items-center gap-1 text-[#9E7B7B] hover:text-burgundy transition-colors mr-3"
+          className="flex items-center gap-1 text-[#9E7B7B] hover:text-[#3D0A14] transition-colors mr-3"
           aria-label="Go back"
         >
           <ChevronLeft size={22} />
@@ -596,7 +594,7 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
           <p className="text-[10px] text-[#9E7B7B] uppercase tracking-wider leading-none mb-0.5">
             Total
           </p>
-          <p className="font-playfair text-lg font-bold text-burgundy leading-none">
+          <p className="font-playfair text-lg font-bold text-[#3D0A14] leading-none">
             QAR {totalPrice}
           </p>
         </div>
@@ -615,15 +613,15 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
                 onClick={() => setStep(i)}
                 className={cn(
                   "flex flex-col items-center gap-1.5 py-4 px-2 transition-all duration-300 relative",
-                  active ? "text-white" : completed ? "text-burgundy" : "text-[#9E7B7B]"
+                  active ? "text-white" : completed ? "text-[#3D0A14]" : "text-[#9E7B7B]"
                 )}
               >
                 {active && (
-                  <span className="absolute inset-x-2 inset-y-1 bg-burgundy rounded-xl shadow-warm-sm" />
+                  <span className="absolute inset-x-2 inset-y-1 bg-[#3D0A14] rounded-xl shadow-warm-sm" />
                 )}
                 <span className="relative z-10">
                   {completed ? (
-                    <CheckCircle2 size={20} className="fill-burgundy-light" />
+                    <CheckCircle2 size={20} className="fill-[#F5E4E6]" />
                   ) : (
                     <s.Icon size={20} />
                   )}
@@ -631,7 +629,7 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
                 <span
                   className={cn(
                     "relative z-10 text-[10px] font-bold leading-tight text-center",
-                    active ? "text-white" : completed ? "text-burgundy" : "text-[#9E7B7B]"
+                    active ? "text-white" : completed ? "text-[#3D0A14]" : "text-[#9E7B7B]"
                   )}
                 >
                   {s.label.split(" ").map((w, wi) => (
@@ -657,9 +655,9 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
                   className={cn(
                     "shrink-0 flex flex-col items-center gap-1 py-3 px-4 border-b-2 transition-all duration-200",
                     active
-                      ? "border-burgundy text-burgundy"
+                      ? "border-[#3D0A14] text-[#3D0A14]"
                       : completed
-                      ? "border-transparent text-burgundy/60"
+                      ? "border-transparent text-[#3D0A14]/60"
                       : "border-transparent text-[#9E7B7B]"
                   )}
                 >
@@ -718,10 +716,10 @@ export default function CustomizePage({ params }: { params: { id: string } }) {
       </div>
 
       {/* ── Fixed Next button ── */}
-      <footer className="fixed bottom-0 left-0 right-0 z-50 bg-[#FDF6F0]/97 backdrop-blur-md border-t border-[rgba(26,10,10,0.06)] shadow-warm-sm p-4 md:pl-24">
+      <footer className="fixed bottom-0 left-0 right-0 z-50 bg-[#C896A0]/97 backdrop-blur-md border-t border-[rgba(26,10,10,0.10)] shadow-warm-sm p-4 md:pl-24">
         <button
           onClick={handleNext}
-          className="w-full bg-burgundy hover:bg-burgundy-dark text-white font-bold py-4 rounded-2xl transition-all duration-300 hover:shadow-warm-lg shadow-warm-sm active:scale-[0.97] font-playfair text-base tracking-wide"
+          className="w-full bg-[#3D0A14] hover:bg-[#2D0810] text-white font-bold py-4 rounded-2xl transition-all duration-300 hover:shadow-warm-lg shadow-warm-sm active:scale-[0.97] font-playfair text-base tracking-wide"
         >
           {step === steps.length - 1 ? "Confirm Order" : `Next  →`}
         </button>
