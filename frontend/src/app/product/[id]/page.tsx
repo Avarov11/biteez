@@ -28,9 +28,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
 
   if (!product) {
     return (
-      <main className="min-h-screen pt-20 flex flex-col items-center justify-center px-4 text-center" style={{ backgroundColor: "#C896A0" }}>
+      <main className="min-h-screen bg-cream pt-20 flex flex-col items-center justify-center px-4 text-center">
         <p className="font-playfair text-2xl font-bold text-[#1A0A0A] mb-3">Product not found</p>
-        <Link href="/menu" className="text-[#3D0A14] font-semibold hover:underline">
+        <Link href="/menu" className="text-burgundy font-semibold hover:underline">
           Back to menu →
         </Link>
       </main>
@@ -51,13 +51,13 @@ export default function ProductPage({ params }: { params: { id: string } }) {
   };
 
   return (
-    <main className="min-h-screen pt-16 md:pt-20 pb-12" style={{ backgroundColor: "#C896A0" }}>
+    <main className="min-h-screen bg-cream pt-16 md:pt-20 pb-12">
       {/* Header */}
-      <div className="border-b border-[rgba(26,10,10,0.10)] px-6 md:px-12 py-5">
+      <div className="bg-white border-b border-[rgba(26,10,10,0.06)] px-6 md:px-12 py-5">
         <div className="max-w-4xl mx-auto flex items-center gap-3">
           <button
             onClick={() => router.back()}
-            className="text-[#9E7B7B] hover:text-[#3D0A14] transition-colors"
+            className="text-[#9E7B7B] hover:text-burgundy transition-colors"
           >
             <ChevronLeft size={22} />
           </button>
@@ -65,7 +65,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             <h1 className="font-playfair text-xl md:text-2xl font-bold text-[#1A0A0A]">
               {product.name}
             </h1>
-            <p className="text-[#3D0A14]/60 text-sm">{product.category}</p>
+            <p className="text-[#9E7B7B] text-sm">{product.category}</p>
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
       <div className="max-w-4xl mx-auto px-6 md:px-12 py-8">
         <div className="flex flex-col md:flex-row gap-8 items-start">
           {/* Image */}
-          <div className="relative w-full md:w-[420px] shrink-0 aspect-square rounded-2xl overflow-hidden bg-[#F5E4E6] shadow-warm-md">
+          <div className="relative w-full md:w-[420px] shrink-0 aspect-square rounded-2xl overflow-hidden bg-cream-dark shadow-warm-md">
             <Image
               src={product.image}
               alt={product.name}
@@ -83,7 +83,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               priority
             />
             {product.tag && (
-              <span className="absolute top-3 left-3 bg-[#3D0A14] text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wide uppercase">
+              <span className="absolute top-3 left-3 bg-burgundy text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wide uppercase">
                 {product.tag}
               </span>
             )}
@@ -94,7 +94,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
             <span
               className={cn(
                 "inline-block text-[11px] font-bold px-3 py-1 rounded-full mb-4",
-                categoryBadge[product.category] ?? "bg-[#F5E4E6] text-[#4A3728]"
+                categoryBadge[product.category] ?? "bg-cream-dark text-[#4A3728]"
               )}
             >
               {product.category}
@@ -108,11 +108,11 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               {product.description}
             </p>
 
-            <div className="bg-white rounded-2xl shadow-warm-xs p-5 space-y-5">
+            <div className="bg-white rounded-2xl border border-[rgba(26,10,10,0.06)] shadow-warm-xs p-5 space-y-5">
               {/* Price */}
               <div className="flex items-center justify-between">
                 <span className="text-[#9E7B7B] text-sm font-medium">Price per box</span>
-                <span className="font-playfair font-bold text-[#3D0A14] text-2xl">
+                <span className="font-playfair font-bold text-burgundy text-2xl">
                   QAR {product.price}
                 </span>
               </div>
@@ -123,7 +123,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 <div className="flex items-center gap-3">
                   <button
                     onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                    className="w-9 h-9 rounded-full border border-[rgba(26,10,10,0.12)] flex items-center justify-center text-[#4A3728] hover:border-[#3D0A14] hover:text-[#3D0A14] transition-colors active:scale-[0.97]"
+                    className="w-9 h-9 rounded-full border border-[rgba(26,10,10,0.12)] flex items-center justify-center text-[#4A3728] hover:border-burgundy hover:text-burgundy transition-colors active:scale-[0.97]"
                   >
                     <Minus size={14} />
                   </button>
@@ -132,7 +132,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                   </span>
                   <button
                     onClick={() => setQuantity((q) => q + 1)}
-                    className="w-9 h-9 rounded-full border border-[rgba(26,10,10,0.12)] flex items-center justify-center text-[#4A3728] hover:border-[#3D0A14] hover:text-[#3D0A14] transition-colors active:scale-[0.97]"
+                    className="w-9 h-9 rounded-full border border-[rgba(26,10,10,0.12)] flex items-center justify-center text-[#4A3728] hover:border-burgundy hover:text-burgundy transition-colors active:scale-[0.97]"
                   >
                     <Plus size={14} />
                   </button>
@@ -140,9 +140,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               </div>
 
               {/* Total */}
-              <div className="flex items-center justify-between border-t border-[rgba(26,10,10,0.08)] pt-4">
+              <div className="flex items-center justify-between border-t border-[rgba(26,10,10,0.06)] pt-4">
                 <span className="font-bold text-[#1A0A0A]">Total</span>
-                <span className="font-playfair font-bold text-[#3D0A14] text-xl">
+                <span className="font-playfair font-bold text-burgundy text-xl">
                   QAR {product.price * quantity}
                 </span>
               </div>
@@ -155,7 +155,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 "w-full mt-4 font-bold py-4 rounded-2xl transition-all duration-300 font-playfair tracking-wide text-white flex items-center justify-center gap-2",
                 adding
                   ? "bg-[#9E7B7B] cursor-not-allowed"
-                  : "bg-[#3D0A14] hover:bg-[#2D0810] shadow-warm-sm hover:shadow-warm-lg active:scale-[0.97]"
+                  : "bg-burgundy hover:bg-burgundy-dark shadow-warm-sm hover:shadow-warm-lg active:scale-[0.97]"
               )}
             >
               {adding ? (
@@ -171,7 +171,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
               )}
             </button>
 
-            <p className="text-center text-[#3D0A14]/50 text-xs mt-3">
+            <p className="text-center text-[#9E7B7B] text-xs mt-3">
               🍫 Baked fresh — ready for pickup in 24–48 hours
             </p>
           </div>

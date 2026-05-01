@@ -41,21 +41,25 @@ export default function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative flex items-center justify-end h-16 md:h-20">
-          {/* Logo - Centered */}
-          <Link href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo */}
+          <Link href="/" className="flex items-center">
             <Image
               src="/logo.png"
               alt="Biteez"
               width={110}
               height={44}
-              className="object-contain transition-all duration-300 h-10 w-auto"
+              className={cn(
+                "object-contain transition-all duration-300 h-10 w-auto",
+                scrolled
+                  ? "[mix-blend-mode:multiply]"
+                  : "[filter:invert(1)] [mix-blend-mode:screen]"
+              )}
               priority
             />
           </Link>
 
-          {/* Desktop Nav + Right actions */}
-          <div className="flex items-center gap-8">
+          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
@@ -66,7 +70,7 @@ export default function Navbar() {
                   "after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-px after:bg-gold after:transition-all after:duration-300 hover:after:w-full",
                   scrolled
                     ? "text-stone-700 hover:text-burgundy"
-                    : "text-[#1A0A0A]/80 hover:text-[#1A0A0A]"
+                    : "text-white/90 hover:text-white"
                 )}
               >
                 {lang === "EN" ? link.label : link.labelAr}
@@ -83,7 +87,7 @@ export default function Navbar() {
                 "hidden md:flex items-center gap-1.5 text-[11px] font-bold tracking-widest border rounded-full px-3 py-1.5 transition-all duration-200",
                 scrolled
                   ? "border-stone-300 text-stone-600 hover:border-burgundy hover:text-burgundy"
-                  : "border-[#1A0A0A]/30 text-[#1A0A0A]/70 hover:border-[#1A0A0A] hover:text-[#1A0A0A]"
+                  : "border-white/40 text-white/90 hover:border-white hover:text-white"
               )}
             >
               <Globe size={12} />
@@ -97,7 +101,7 @@ export default function Navbar() {
                 "relative p-1.5 transition-colors rounded-full",
                 scrolled
                   ? "text-stone-700 hover:text-burgundy"
-                  : "text-[#1A0A0A]/80 hover:text-burgundy"
+                  : "text-white hover:text-gold"
               )}
               aria-label="Cart"
             >
@@ -114,13 +118,12 @@ export default function Navbar() {
               onClick={() => setMobileOpen(!mobileOpen)}
               className={cn(
                 "md:hidden p-1.5 transition-colors rounded-full",
-                scrolled ? "text-stone-700" : "text-[#1A0A0A]/80"
+                scrolled ? "text-stone-700" : "text-white"
               )}
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
-          </div>
           </div>
         </div>
       </div>
