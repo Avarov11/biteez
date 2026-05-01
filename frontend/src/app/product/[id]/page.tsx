@@ -9,6 +9,8 @@ import { menuProducts } from "@/data/products";
 import { useCartStore } from "@/store/cartStore";
 import { cn } from "@/lib/utils";
 
+export const dynamic = "force-dynamic";
+
 const categoryBadge: Record<string, string> = {
   Customized:      "bg-gold-light text-gold-dark",
   Birthday:        "bg-burgundy-light text-burgundy-dark",
